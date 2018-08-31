@@ -1,0 +1,50 @@
+﻿@page
+@model Bartender.Pages.Orders.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>OrderUp</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="OrderUp.Patron" class="control-label"></label>
+                <input asp-for="OrderUp.Patron" class="form-control" />
+                <span asp-validation-for="OrderUp.Patron" class="text-danger"></span>
+            </div>
+			<div class="form-group">
+				<label asp-for="OrderUp.DrinkType" class="control-label"></label>
+				<select asp-for="OrderUp.DrinkType" class="form-control" />
+					<option value="">Pick Your Poison</option>
+					<option value="Black and Tan"> Black and Tan</option>
+					<option value="Bloody Mary"> Bloody Mary</option>
+					<option value="Gin and Tonic"> Gin And Tonic</option>
+					<option value="GreatfulDead"> Greatful Dead</option>
+					<option value="Highball"> Highball</option>
+					<option value="Jack And Coke"> Jack and Coke</option>
+					<option value="Long Island"> Long Island</option>
+					<option value="Margarita"> Margarita</option>
+					<option value="Martini"> Martini</option>
+					<option value="Old Fashioned"> Old Fashioned</option>
+				<span asp-validation-for="OrderUp.DrinkType" class="text-danger"></span>
+			</div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Cust_Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

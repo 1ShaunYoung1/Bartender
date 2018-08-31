@@ -1,0 +1,42 @@
+﻿@page
+@model Bartender.Pages.Orders.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderUp[0].Patron)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderUp[0].DrinkType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.OrderUp) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patron)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DrinkType)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
